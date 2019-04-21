@@ -1,3 +1,39 @@
-<p>
-  base works!
-</p>
+  <h1>定义字符串---{{title}}</h1>
+
+  <p *ngFor = "let item of list;let key = index">for循环 ---{{item}}---{{key}}</p>
+  <p *ngFor = "let item of list1;let key = index">for循环 ---{{item}}---{{key}}</p>
+  <p>对象---{{obj.age}}</p>
+
+  <div>ngif----
+      <div *ngIf = "flags">判断条件成立</div>
+      <div *ngIf = "!flags">判断条件不成立</div>
+  </div>
+
+
+
+  <span [ngSwitch]="status">ngswitch---
+      <p *ngSwitchCase="1">
+          下单
+      </p>
+      <p *ngSwitchCase="2">
+         交易进行中
+      </p>
+      <p *ngSwitchDefault>
+         交易完成
+      </p>
+  </span>
+
+  <div>
+    ngstyle---
+    ngclass---
+    <p [ngStyle]="{'color': 'red'}">我是红色</p>
+    <p [ngStyle]="{'color': attr}">我是粉色</p>
+    <p [ngClass]="{'nav': true}">文字大小</p>
+  </div>
+
+
+  <div [innerHTML]="tpl">
+
+  </div>
+
+  <button (click)="btn()">事件点击</button>
