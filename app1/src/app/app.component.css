@@ -1,0 +1,13 @@
+header{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #4279ff;
+}
+a{
+  width: 130px;
+  display: block;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
