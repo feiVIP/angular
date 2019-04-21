@@ -1,3 +1,59 @@
-<p>
-  form works!
-</p>
+<form>
+  <ul>
+    <li>姓 名：<input type="text"
+                   [(ngModel)]="peopleInfo.username"
+                   [ngModelOptions]="{standalone: true}"
+                   />
+    </li>
+    <li>性 别：
+      <input type="radio"
+             value="1"
+             name="sex"
+             id="sex1"
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="peopleInfo.sex">
+      <label for="sex1">男 </label>　　　
+      <input type="radio"
+             value="2"
+             name="sex"
+             id="sex2"
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="peopleInfo.sex">
+      <label for="sex2">女 </label>
+    </li>
+    <li>
+      城 市：
+      <select name="city"
+              [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="peopleInfo.city">
+        <option [value]="item"
+                *ngFor="let item of peopleInfo.cityList">{{item}}
+        </option>
+      </select>
+    </li>
+    <li>
+      爱 好：
+      <span *ngFor="let item of peopleInfo.hobby;let key=index;">
+            <input type="checkbox"
+                   [id]="'check'+key"
+                   [ngModelOptions]="{standalone: true}"
+                   [(ngModel)]="item.checked"/>
+        <label [for]="'check'+key"> {{item.title}}</label>
+      </span>
+    </li>
+    <li>
+      备 注：
+      <textarea name="mark"
+                id="mark"
+                cols="100"
+                rows="3"
+                [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="peopleInfo.mark">
+      </textarea>
+    </li>
+  </ul>
+  <button (click)="getData()" class="submit">获取表单的内容</button>
+  <pre>
+    {{peopleInfo|json}}
+  </pre>
+</form>
