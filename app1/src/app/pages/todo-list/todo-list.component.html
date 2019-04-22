@@ -1,3 +1,32 @@
-<p>
-  todo-list works!
-</p>
+<h2>数据持久化todoList</h2>
+<div>
+  <input class="form_input" type="text"
+         [ngModelOptions]="{standalone: true}"
+         [(ngModel)]="keyword" (keyup)="doAdd($event)"/>
+  <button (click)="addItem()">添加</button>
+  <h3>待办事项</h3>
+  <ul>
+    <li *ngFor="let item of todolist;let key=index;"
+        [hidden]="item.status==1">
+      <input type="checkbox"
+             [ngModelOptions]="{standalone: true}"
+             (change)="cheboxBtn()"
+             [(ngModel)]="item.status"/>
+      {{item.title}}
+      <button (click)="deleteData(key)">X</button>
+    </li>
+  </ul>
+  <h3>已完成事项</h3>
+  <ul>
+    <li *ngFor="let item of todolist;let key=index;"
+        [hidden]="item.status==0">
+      <input type="checkbox"
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="item.status"
+             (change)="cheboxBtn()"
+      />
+      {{item.title}}
+      <button (click)="deleteData(key)">X</button>
+    </li>
+  </ul>
+</div>
