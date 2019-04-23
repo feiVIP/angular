@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-base',
@@ -16,6 +16,9 @@ export class BaseComponent implements OnInit {
  * 3、protected 保护的  只有在当前类以及他的子类里面使用
  *
  */
+  @ViewChild('sun') sun:any;
+  @ViewChild('domapp') domapp:any;
+
   public title:string = 'angular'
   public list:Array<any> = [123,'abc',true]
   public list1:any[] = ['aaa','bbb',111]
@@ -32,5 +35,13 @@ export class BaseComponent implements OnInit {
 
   btn(){
     alert('你点了我一下')
+  }
+
+  getsunbtn(){
+    this.sun.clickBtn();
+  }
+
+  ngAfterViewInit(){
+    console.log(this.domapp.nativeElement.style.color='red')
   }
 }
