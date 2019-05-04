@@ -1,3 +1,21 @@
-<p>
-  tongxun works!
-</p>
+<h1>我是父组件</h1>
+<br>
+
+<br>
+<hr>
+<br>
+<br>
+<app-son [title]="title"  [msg]="msg" [run]='run' [home]='this' #son></app-son>
+<br>
+<br>
+<button (click)="getSondata()">
+  获取子组件的方法
+</button>
+<br>
+<br>
+<button>
+  {{this.son.sondata}}
+</button>
+<br>
+<br>
+<app-son1 (outer)="run($event)"></app-son1>
