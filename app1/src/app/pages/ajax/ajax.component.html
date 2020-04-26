@@ -1,3 +1,7 @@
-<p>
-  axios works!
-</p>
+<ul *ngFor="let data of listData" >
+  <li class="nav-title">{{data.title}}
+    <ul *ngFor="let item of data.list">
+      <li class="sub-nav-title">{{item.title}}</li>
+    </ul>
+  </li>
+</ul>
